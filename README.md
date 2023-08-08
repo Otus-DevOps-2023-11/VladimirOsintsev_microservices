@@ -1,0 +1,2 @@
+# VladimirOsintsev_microservices
+VladimirOsintsev microservices repository
