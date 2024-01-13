@@ -1,38 +1,22 @@
 # VladimirOsintsev_microservices
-VladimirOsintsev microservices repository
+VladimirOsintsev microservices repos
+ДЗ #17. Введение в мониторинг. Модели и принципы работы систем мониторинга
 
-ДЗ #14. Docker образы. Микросервисы
-
-Выполнены все основные  пункты ДЗ
+Выполнены все основные пункты ДЗ.
 Основное задание
 
-    Созданы Dockerfile для сервисов post-py, comment, ui;
-    Собраны образы для всех трех сервисов с тэгом 1.0;
-    Сборка ui началась не с первого шага по той причине, что начальные шаги сборки идентичны сервису comment, которые уже ранее выполнялись и были закэшированы докером:
-    Создана bridge-сеть для контейнеров под названием reddit;
-    Контейнеры успешно запушены с указанием сетевых алиасов;
-    Сервис доступен по адресу http://<docker-host-ip>:9292/;
- Оптимизация образов приложения
+    Создан Docker хост в Yandex Cloud, локальное окружение настроено на работу с ним;
+    Prometheus запущен из образа prom/prometheus;
+    Изучены метрики по умолчанию;
+    Изучен раздел Targets (цели) и формат собираемых метрик, доступных по адресу host:port/metrics;
+    Создан кастомный Docker образ Prometheus на основе собственного файла конфигурации prometheus.yml;
+    Создан docker-compose.yml файл для поднятия Prometheus совместно с микросервисами ui, post, comment, mongo_db;
+    Изучен функционал Prometheus на основе новых целей и Endpoint'ов наших микросервисов;
+    Добавлен сбор метрик Docker хоста при помощи Node exporter:
+        Добавлен новый сервис в docker-compose.yml;
+        Добавлен новый Job в prometheus.yml;
+    Изучено изменение динамики нагрузки хоста на графике при повышении загруженности CPU
 
-    Сервис ui пересобран с тэгом 2.0 на базе ubuntu:16.04;
-    Сборка началась с первого шага, закешированных действий в данном случае нет;
-    Размер образа 2.0 составил 487MB, в отличии от 1.0, который был 998MB;
+Собранные образы запушены на DockerHub
 
-Перезапуск приложения с volume
-
-    Создан Docker volume reddit_db и подключен в контейнер с MongoDB по пути /data/db;
-    После перезапуска контейнеров написанный пост остался на месте;
-    Финальный набор команд такой:
-
-docker build -t wowan/post:1.0 ./post-py
-docker build -t wowan/comment:2.0 ./comment
-docker build -t wowan/ui:2.0 ./ui
-
-docker network create reddit
-
-docker run -d --network=reddit --network-alias=post_db --network-alias=comment_db \
-  -v reddit_db:/data/db \
-  mongo:4
-docker run -d --network=reddit --network-alias=post wowan/post:1.0
-docker run -d --network=reddit --network-alias=comment wowan/comment:2.0
-docker run -d --network=reddit -p 9292:9292 wowan/ui:2.0
+https://hub.docker.com/repositories/wowan
