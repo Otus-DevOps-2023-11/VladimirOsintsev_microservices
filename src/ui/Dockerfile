@@ -1,8 +1,6 @@
-FROM ubuntu:18.04
-RUN apt-get update \
-    && apt-get install -y ruby-full ruby-dev build-essential \
-    && apt-get clean \
-    && gem install bundler -v 1.16.0 --no-ri --no-rdoc
+FROM ruby:2.2
+RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list && \
+apt-get update -qq && apt-get install -y build-essential
 
 ENV APP_HOME /app
 RUN mkdir $APP_HOME

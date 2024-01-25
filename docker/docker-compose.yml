@@ -10,15 +10,26 @@ services:
           - post_db
           - comment_db
   ui:
-    build: ./ui
-    image: ${USERNAME}/ui:${UI_VERSION}
+    #build: ./ui
+    image: ${USER_NAME}/ui:${UI_TAG}
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     ports:
       - ${UI_PORT}:${UI_PORT}/tcp
     networks:
-      - front_net
+      front_net:
+        aliases:
+          - ui
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.ui
   post:
-    build: ./post-py
-    image: ${USERNAME}/post:${POST_VERSION}
+    #build: ./post-py
+    image: ${USER_NAME}/post:${POST_TAG}
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     networks:
       back_net:
         aliases:
@@ -26,9 +37,16 @@ services:
       front_net:
         aliases:
           - post
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.post
   comment:
-    build: ./comment
-    image: ${USERNAME}/comment:${COMMENT_VERSION}
+    #build: ./comment
+    image: ${USER_NAME}/comment:${COMMENT_TAG}
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     networks:
       back_net:
         aliases:
@@ -37,7 +55,7 @@ services:
         aliases:
           - comment
   prometheus:
-    image: ${USERNAME}/prometheus
+    image: ${USER_NAME}/prometheus
     ports:
       - '9090:9090'
     volumes:
@@ -70,14 +88,4 @@ volumes:
 
 networks:
   front_net:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 10.0.2.0/24
   back_net:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 10.0.1.0/24
