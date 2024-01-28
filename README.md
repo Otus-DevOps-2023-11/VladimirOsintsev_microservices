@@ -1,17 +1,14 @@
 # VladimirOsintsev_microservices
 VladimirOsintsev microservices repos
-ДЗ #18. Логирование Docker-контейнеров
+ДЗ #19. Введение в Kubernetes
 
-Основная часть
+Выполнены все основные и дополнительные пункты ДЗ.
+Основное задание
 
-    сервис EFK собран с помощью docker compose
-    обновлён Dockerfile и fluent.conf
-    собран образ fluentd
-    для сбора логов с сервисов приложения прописан logging драйвер в docker-compose.yml
-    для сервиса post в конфиге fluentd прописан фильтр для сбора структурированных логов в формате json
-    для сервиса ui прописаны фильтры для сбора неструктурированных логов
-    поднят zipkin для ознакомления с метриками
+    Описаны Deployment манифесты приложений comment, mongo, post, ui;
+    В YC развернуты две ВМ для master и worker нод кластера Kubernetes;
+    С помощью команд kubeadm init и kubeadm join развернут кластер k8s;
+    Установлен сетевой плагин Calico;
 
-Дополнительная часть
-
-    с помощью https://grokdebugger.com/ удалось написать правильный паттерн для сбора неструктурированного лога из допзадания.
+wget https://projectcalico.docs.tigera.io/manifests/calico.yaml
+kubectl apply -f calico.yaml
