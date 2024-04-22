@@ -1,14 +1,18 @@
 # VladimirOsintsev_microservices
 VladimirOsintsev microservices repos
-ДЗ #19. Введение в Kubernetes
+ДЗ №20
 
-Выполнены все основные и дополнительные пункты ДЗ.
-Основное задание
+    Установлен minikube
+    Созданы манифесты деплойментов и сервисов
+    Сконфигурированы конфиги доступа к кластеру
+    Создан неймспейс dev
 
-    Описаны Deployment манифесты приложений comment, mongo, post, ui;
-    В YC развернуты две ВМ для master и worker нод кластера Kubernetes;
-    С помощью команд kubeadm init и kubeadm join развернут кластер k8s;
-    Установлен сетевой плагин Calico;
+Тесты
 
-wget https://projectcalico.docs.tigera.io/manifests/calico.yaml
-kubectl apply -f calico.yaml
+minikube start
+kubectl get nodes
+kubectl apply -f ./kubernetes/reddit
+minikube dashboard
+kubectl apply -f ./kubernetes/reddit/dev-namespace.yml
+kubectl apply -f ./kubernetes/reddit/ -n dev
+
