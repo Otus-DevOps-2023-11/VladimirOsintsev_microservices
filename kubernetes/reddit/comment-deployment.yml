@@ -19,7 +19,7 @@ spec:
         component: comment
     spec:
       containers:
-      - image: wowan/comment:3.0
+      - image: mirror.gcr.io/wowan/comment:3.0
         name: comment
         env:
         - name: COMMENT_DATABASE_HOST

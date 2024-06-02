@@ -19,7 +19,7 @@ spec:
         component: post
     spec:
       containers:
-      - image: wowan/post:3.0
+      - image: mirror.gcr.io/wowan/post:3.0
         name: post
         env:
         - name: POST_DATABASE_HOST
