@@ -1,0 +1,7 @@
+name: mongodb
+version: 1.0.0
+description: reddit application Mongodb
+maintainers:
+  - name: VNOsintsev
+    email: vladimir_tmail@mail.ru
+appVersion: 4.0

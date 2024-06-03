@@ -1,0 +1,7 @@
+name: comment
+version: 1.0.0
+description: reddit application comment
+maintainers:
+  - name: VNosintsev
+    email: vladimir_tmail@mail.ru
+appVersion: 3.0

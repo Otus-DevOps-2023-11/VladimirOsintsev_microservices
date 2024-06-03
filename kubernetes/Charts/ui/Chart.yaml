@@ -1,0 +1,7 @@
+name: ui
+version: 1.0.0
+description: reddit application UI
+maintainers:
+  - name: VNOsintsev
+    email: vladimir_tmail@mail.ru
+appVersion: 3.0
