@@ -1,7 +1,7 @@
 name: ui
 version: 1.0.0
-description: reddit application UI
+description: OTUS reddit application UI
 maintainers:
-  - name: VNOsintsev
+  - name: Vladimir
     email: vladimir_tmail@mail.ru
-appVersion: 3.0
+appVersion: 1.0

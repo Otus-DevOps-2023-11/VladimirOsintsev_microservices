@@ -1,6 +1,6 @@
 name: reddit
-description: sample reddit application
-maintainers:
-  - name: VNOsintsev
-    email: vladimir_tmail@mail.ru
 version: 0.1.0
+description: OTUS sample reddit application
+maintainers:
+  - name: Vladimir Osintsev
+    email: vladimir_tmail@mail.ru

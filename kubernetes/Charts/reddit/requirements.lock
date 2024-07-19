@@ -8,8 +8,8 @@ dependencies:
 - name: comment
   repository: file://../comment
   version: 1.0.0
-- name: mongodb
-  repository: file://../mongodb
-  version: 1.0.0
-digest: sha256:4e3fd8c501a5e823549c2246af7369684da75b79bdb63ced4664585374300ca7
-generated: "2024-01-28T01:32:22.656280293+03:00"
+- name: simple-mongodb
+  repository: https://helm.tyk.io/public/helm/charts/
+  version: 0.1.1
+digest: sha256:8af94865e8737b8c7781b4f73e3aee0da6e761a519863f9b7e6d6d05dce1b7c1
+generated: "2024-06-16T15:09:59.08333592+07:00"

@@ -1,10 +1,9 @@
----
 service:
   internalPort: 9292
   externalPort: 9292
 
 image:
-  repository: mirror.gcr.io/wowan/comment
+  repository: "mirror.gcr.io/wowan/comment"
   tag: "3.0"
 
-databaseHost:
+databaseHost: "mongo"

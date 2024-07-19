@@ -1,10 +1,9 @@
----
 service:
   internalPort: 5000
   externalPort: 5000
 
 image:
-  repository: mirror.gcr.io/wowan/post
+  repository: "mirror.gcr.io/wowan/post"
   tag: "3.0"
 
-databaseHost:
+databaseHost: "mongo"

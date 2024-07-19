@@ -12,6 +12,6 @@ dependencies:
     version: "1.0.0"
     repository: "file://../comment"
 
-  - name: mongodb
-    version: "1.0.0"
-    repository: "file://../mongodb"
+  - name: simple-mongodb
+    version: 0.1.1
+    repository: https://helm.tyk.io/public/helm/charts/
